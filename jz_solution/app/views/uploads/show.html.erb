@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p id="notice"><%= notice %></p>
+
+<h3> Information has been uploaded from <%= @upload.file_name %> </h3>
+<p> Your file's total revenue is <%= number_to_currency @upload.revenue %> </p>
+
+<table border="1">
+	<tr>
+	    <th>Customer Name</th>
+	    <th>Item Descrtiption</th>
+	    <th>Item Price</th>
+	    <th>Purchase Count</th>
+	    <th>Merchant Address</th>
+	    <th>Merchant Name</th>
+	    <th>Order Total</th>
+	</tr>
+
+	<% @upload.transactions.each do |transaction| %>
+		<tr>
+			<td><%= transaction.customer.name %></td>
+			<td><%= transaction.item.description %></td>
+			<td><%= number_to_currency transaction.item.price %></td>
+			<td><%= transaction.count %></td>
+			<td><%= transaction.item.merchant.address %></td>
+			<td><%= transaction.item.merchant.name %></td>
+			<td><%= number_to_currency transaction.total %></td>
+		</tr>
+	<% end %>
+</table>
+
+<%= link_to 'Edit', edit_upload_path(@upload) %> |
+<%= link_to 'Back', uploads_path %>

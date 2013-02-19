@@ -1,0 +1,29 @@
+
+<h1> Welcome <%#= @user.name %> </h1>
+<p> This is a sample application to upload and process CSV files. Please, choose button New Upload below to upload your file </p>
+
+
+<h2>Listing uploads</h2>
+<table border='1'>
+  <tr>
+    <th>File name</th>
+    <th>Downloaded on</th>
+    <th>Total revenue</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @uploads.each do |upload| %>
+  <tr>
+    <td><%= upload.file_name %></td>
+    <td><%= upload.updated_at %></td>
+    <td><%= number_to_currency upload.revenue %></td>
+    <td><%= link_to 'Show', upload %></td>
+    <td><%= link_to 'Remove', upload, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Upload', new_upload_path %>
