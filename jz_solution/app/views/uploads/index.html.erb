@@ -1,11 +1,7 @@
+<% if user_signed_in? %>
+    <h1>Welcome back, <strong><%= current_user.username %></strong>.</h1>
 
-<h1> Welcome <%#= @user.name %> </h1>
-<p> This is a sample application to upload and process CSV files. Please, choose button New Upload below to upload your file </p>
-
-<button><%= link_to 'New Upload', new_upload_path %></button>
-
-
-<h2>Listing uploads</h2>
+    <h2>Listing uploads</h2>
 <table border='1'>
   <tr>
     <th>File name</th>
@@ -25,5 +21,13 @@
   </tr>
 <% end %>
 </table>
+
+
+<% else %>
+  <h1>Welcome.</h1>
+    <h3>Please, sign in to be able to add a new file.</h3>
+<% end %>
+
+<button><%= link_to 'New Upload', new_upload_path %></button>
 
 <br />

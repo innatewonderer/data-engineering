@@ -1,4 +1,6 @@
 JzSolution::Application.routes.draw do
+  devise_for :users, path_names: {sing_in: "welcome", sign_out: "seeYa", sing_up: "hYhere"}
+
   resources :uploads
 
 

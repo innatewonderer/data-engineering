@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Living Social Upload Challenge</title>
 	  <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -7,9 +8,26 @@
 	  <%= csrf_meta_tags %>
 </head>
 <body>
+	<div id="container">
+      <div id="user_nav">
+        <% if user_signed_in? %>
+          Welcome, <strong><%= current_user.email %></strong>.
+          <%= link_to 'Edit profile', edit_user_registration_path %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path %> |
+          <%= link_to "Login", new_user_session_path %>
+        <% end %>
+      </div>
+      <div id="flash_messages">
+	      <% flash.each do |name, msg| %>
+	        <%= content_tag :div, msg, id: "flash_#{name}" %>
+	      <% end %>
+  		</div>
 
-<%= yield %>
+		<%= yield %>
 
+	</div>
 </body>
 <footer>
 	Application for LivingSocial RoR developer. Submitted by @jzueva
