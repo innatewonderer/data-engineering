@@ -1,6 +1,6 @@
-== Wellcome to @jzueva's solution to LivingSocial CSV file upload challenge
+#Wellcome to @jzueva's solution to LivingSocial CSV file upload challenge
 
-##Installation
+###Installation
 ```ruby
 git clone git@github.com:innatewonderer/data-engineering.git
 cd data-engineering
@@ -18,5 +18,5 @@ rails s
 
 
 
-==CSV file import resources used
+###CSV file import resources used
 http://ruby-doc.org/stdlib-1.9.2/libdoc/csv/rdoc/CSV.html
