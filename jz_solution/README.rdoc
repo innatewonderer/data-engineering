@@ -1,32 +1,20 @@
 == Wellcome to @jzueva's solution to LivingSocial CSV file upload challenge
 
-To start, in your controller find appropriate folder and clone this repository 
-`git clone`  
+## Installation
+```
+git clone git@github.com:innatewonderer/data-engineering.git
+cd data-engineering
+cd jz-solution
+bundle install
+```
 
-`cd` into the folder, 
-This application is using `sqlite3` database management tool. Please, modify your `Gemfile` with the application of your preference.  
-Run `bundle install` to install required applications from `Gemfile`  
-Update your `database.yml` file  
-Run `rake db:migrate`  
-Run `rails s` to start your applicaiton.  
-`localhost:3000` will display the index view where you will be able to navigate through the application and upload and process files.
+My application is utilizing sqlite3, please modify Gemfile with DB solution of your choice.
+Edit database.yml file accordingly.
 
-== Application development logic
-
-After reviewing the task instructions as well as *example_input.tab*, I identified the following models and relationships:
-
-1. Upload model and controller - will manage the main interaction with the site as well as file_upload functionalities
-2. Transaction model will combine information for each of the rows within the file
-  2.1 Transaction belongs to an item as well as to a customer
-3. Customer model stores customer's name
-  3.1 Customer may have many transactions
-4. Item model stores description and price
-  4.1 Item belongs_to a Merchant
-5. Merchant model stores name and address
-  5.1 Merchant has_many items
-
-By creating nested attributes I will be able to access more data with less effort.
-By making sure to include `attr_accessible` to each of the models, I ensure against mass-assignment issue in the future.
+```
+rake db:migrate
+rails s
+```
 
 ==CSV file import resources used
 ** http://ruby-doc.org/stdlib-1.9.2/libdoc/csv/rdoc/CSV.html
