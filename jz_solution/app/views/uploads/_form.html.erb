@@ -1,20 +1,7 @@
-<%= form_for(@upload) do |f| %>
-  <% if @upload.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@upload.errors.count, "error") %> prohibited this upload from being saved:</h2>
-
-      <ul>
-      <% @upload.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.file_field :file_name %><br />
-  </div>
-  <div class="actions">
-    <%= f.button :submit %>
-  </div>
+<p> 
+<%= form_for :upload, :url => uploads_path, :html => { :multipart => true } do |f| %>
+	
+	<%= f.file_field :file %>
+	<%= f.submit "Upload" %>
 <% end %>
+</p>

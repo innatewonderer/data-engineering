@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p id="notice"><%= notice %></p>
-
-<h3> Information has been uploaded from <%= @upload.file_name %> </h3>
-<p> Your file's total revenue is <%= number_to_currency @upload.revenue %> </p>
+<h3> Information has been uploaded from <span class ="file_name"><%= @upload.file_name %> </span></h3>
 
 <table border="1">
 	<tr>
@@ -28,6 +25,8 @@
 		</tr>
 	<% end %>
 </table>
+<br>
+<div class="total_revenue"> Your order's total revenue is <%= number_to_currency @upload.revenue %></div>
 
 <%= link_to 'Edit', edit_upload_path(@upload) %> |
 <%= link_to 'Back', uploads_path %>

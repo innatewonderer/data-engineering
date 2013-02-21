@@ -1,3 +1,38 @@
 // Place all the styles related to the uploads controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+table {
+	text-align: center;
+	width: 100%
+}
+
+table tr td {
+	padding: 7px
+}
+
+table tbody tr th {
+	padding: 10px
+}
+
+span.file_name {
+	background: #fff2a8;
+	padding: 5px;
+}
+
+div.total_revenue {
+	background: #a8d1ff;
+	padding: 5px;
+	text-align:right
+}
+
+footer {
+	margin-left: 300px;
+	position: fixed;
+	bottom: 15px
+}
+
+button {
+	font-size: 125%;
+	padding: 7px 12px;
+}

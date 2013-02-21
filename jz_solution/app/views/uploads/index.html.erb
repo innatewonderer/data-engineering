@@ -2,6 +2,8 @@
 <h1> Welcome <%#= @user.name %> </h1>
 <p> This is a sample application to upload and process CSV files. Please, choose button New Upload below to upload your file </p>
 
+<button><%= link_to 'New Upload', new_upload_path %></button>
+
 
 <h2>Listing uploads</h2>
 <table border='1'>
@@ -25,5 +27,3 @@
 </table>
 
 <br />
-
-<%= link_to 'New Upload', new_upload_path %>

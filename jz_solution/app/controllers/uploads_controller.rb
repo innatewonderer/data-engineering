@@ -1,3 +1,5 @@
+require 'csv'
+
 class UploadsController < ApplicationController
   # GET /uploads
   # GET /uploads.json
@@ -24,7 +26,7 @@ class UploadsController < ApplicationController
   # GET /uploads/new
   # GET /uploads/new.json
   def new
-    @upload = Upload.new
+    @upload = Upload.new(params[:upload])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,27 +42,22 @@ class UploadsController < ApplicationController
   # POST /uploads
   # POST /uploads.json
   def create
-    # @upload = Upload.new(params[:file][:file_name])
-    # By modifying existing *create* method, we can keep the code DRY 
-    # while keeping existing scaffolding methods
-
-    @upload = Upload.import(params[:upload][:file_name].read, params[:upload][:file_name].original_filename)
-
-    respond_to do |format|
-      if @upload.save
-        format.html { redirect_to @upload, notice: 'Upload was successfully created.' }
-        format.json { render json: @upload, status: :created, location: @upload }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @upload.errors, status: :unprocessable_entity }
+    file = params[:upload][:file]
+    file_name = file.original_filename
+    content = CSV::read(params[:upload][:file].open, Upload::CSV_PARAMS)
+    
+    @upload = Upload.import(content, file_name)
+    
+      respond_to do |format|
+        if @upload.save
+          format.html { redirect_to @upload, notice: 'Upload was successfully created.' }
+          format.json { render json: @upload, status: :created, location: @upload }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @upload.errors, status: :unprocessable_entity }
+        end
       end
-    end
   end
-
-  # def import
-  #   @upload = Upload.import(params[:upload][:file_name].read, params[:upload][:file_name].original_filename)
-  #   redirect_to @upload, notice: "File successfuly uploaded"
-  # end
 
   # PUT /uploads/1
   # PUT /uploads/1.json
