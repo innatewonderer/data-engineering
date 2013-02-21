@@ -1,4 +1,4 @@
-#Wellcome to @jzueva's solution to LivingSocial CSV file upload challenge
+#Wellcome to [@jzueva's](https://twitter.com/jzueva) solution to LivingSocial CSV file upload challenge
 
 ###Installation
 ```ruby
@@ -16,7 +16,7 @@ rake db:migrate
 rails s
 ```
 
-
-
-###CSV file import resources used
-http://ruby-doc.org/stdlib-1.9.2/libdoc/csv/rdoc/CSV.html
+###Helpful resources
+[Ruby CSV docs](http://ruby-doc.org/stdlib-1.9.2/libdoc/csv/rdoc/CSV.html)
+[CSV RailsCase](http://railscasts.com/episodes/396-importing-csv-and-excel)
+[Devise Gem](https://github.com/plataformatec/devise)
