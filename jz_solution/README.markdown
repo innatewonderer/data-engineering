@@ -8,8 +8,8 @@ cd jz-solution
 bundle install
 ```
 
-My application is utilizing sqlite3, please modify Gemfile with DB solution of your choice.
-Edit database.yml file accordingly.
+My application is utilizing `sqlite3`, please modify Gemfile with DB solution of your choice.
+Edit `database.yml` file accordingly.
 
 ```ruby
 rake db:migrate
